@@ -15,4 +15,13 @@ $(function () {
     if (!currentUser) {
         window.location = 'signin.html';
     }
+
+    // Catches SignOut button press
+    $('.nav-link-sign-out').click(function(evt) {
+        evt.preventDefault()
+        // Destroys current session and logout
+        Parse.User.logOut();
+        //Redirect
+        window.location = 'signin.html';
+    })
 })
