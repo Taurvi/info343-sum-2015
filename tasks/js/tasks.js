@@ -121,14 +121,25 @@ $(function () {
         // sets 'done' to false
         newTask.set('done', false);
 
+        // Get variable for button -- :submit will find the submit button within form
+        var addButton = newTaskForm.find(':submit');
+        // sets property to disabled and adds class 'working'
+        addButton.prop('disabled', true).addClass('working');
+
         // saves into database, returns promise
         newTask.save().then(function() {
             // adds new task that got saved to collection, and collection will show on page
             tasks.add(newTask);
             newTitleInput.val('');
+
+            // Removes spinner button
+            addButton.prop('disabled', false).removeClass('working');
         }, function(err) {
             // On failure, display error
             showError(err);
+
+            // Removes spinner button
+            addButton.prop('disabled', false).removeClass('working');
         });
     });
 
