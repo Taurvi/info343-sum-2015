@@ -50,7 +50,7 @@ $(function () {
         // if returns true, tasks will be part of filter operation,
         // else not (returns all tasks marked completed)
         getCompleted: function() {
-            return this.filter(function() {
+            return this.filter(function(task) {
                return task.get('done');
             });
         }
