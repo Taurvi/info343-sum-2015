@@ -131,4 +131,10 @@ $(function () {
             showError(err);
         });
     });
+
+    // Grab purge button and handle click event
+    $('.btn-purge').click(function() {
+       // Deletes all tasks that have been completed
+       Parse.Object.destroyAll(tasks.getCompleted());
+    });
 })
