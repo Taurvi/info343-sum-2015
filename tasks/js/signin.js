@@ -13,8 +13,8 @@ $(function() {
         evt.preventDefault();
 
         // Variables
-        var email = $('#inputEmail');
-        var password = $('#inputPassword');
+        var email = $('#inputEmail').val();
+        var password = $('#inputPassword').val();
 
         // Login function, returns a promise
         Parse.User.logIn(email, password).then(function() {
