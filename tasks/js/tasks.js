@@ -8,3 +8,11 @@
  */
 
 //use jQuery to register a function that is called when the document is ready for manipulation
+$(function () {
+    // Checks if user is logged in
+    var currentUser = Parse.User.current();
+    // Redirect to signin if not logged in
+    if (!currentUser) {
+        window.location = 'signin.html';
+    }
+})
